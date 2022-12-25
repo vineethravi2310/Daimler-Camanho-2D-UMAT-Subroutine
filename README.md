@@ -1,12 +1,13 @@
 # Daimler-Camanho-2D-Subroutine
-Abaqus UMAT for 2D Daimler Camanho Failure Criteria
 
 <p align="center">
-<img src="DC_Failure" width = 700 alt>
+<img src="Images/DC_Failure.png" width = 700 alt>
 </p>
 <p align="center">
-<em>Different Modes of Inter-Fiber Failure Modes</em>
+<em>Daimler Camanho Failure Modes</em>
 </p>
+
+The following is a UMAT subroutine for Daimler Camanho failure criteria in Abaqus. It applies only to uni-directional composites. This UMAT considers only in-plane stresses and strains consistent with Classical Laminate Theory.
 
 ### Longitudinal Tensile Fracture
 
@@ -17,18 +18,13 @@ $$\phi_{1+} = \frac{\sigma_{11} - \nu_{12}\sigma_{22}}{X_T}$$
 $$\phi_{1-} = \frac{\langle |\sigma_{12}^m| + \mu_L\sigma_{22}^m \rangle}{S_L}$$
 
 ### Transverse Fracture Perpendicular to the Laminate Mid-plane $(\alpha_0 = 0°)$
-When $\sigma_{22} \geq 0$
-$$\phi_{2+} = \sqrt{(1-g)\frac{\sigma_{22}}{Y_T} + g\Big( \frac{\sigma_{22}}{Y_T} \Big)^2 + \Big( \frac{\sigma_{12}}{S_L} \Big)^2 }  $$
+$$\phi_{2+} = \sqrt{(1-g)\frac{\sigma_{22}}{Y_T} + g\Big( \frac{\sigma_{22}}{Y_T} \Big)^2 + \Big( \frac{\sigma_{12}}{S_L} \Big)^2 }  \quad (\sigma_{22} \geq 0) $$
 
-When $\sigma_{22} < 0$
-
-$$\phi_{2+} = \frac{\langle |\sigma_{12}| + \mu_L\sigma_{22} \rangle}{S_L}$$
+$$\phi_{2+} = \frac{\langle |\sigma_{12}| + \mu_L\sigma_{22} \rangle}{S_L}  \quad (\sigma_{22} < 0) $$
 
 ### Transverse Fracture $(\alpha_0 = 53°)$
 
-When $\sigma_{22} < 0$
-
-$$\phi_{2-} = \sqrt{\Big( \frac{\tau_T}{S_T} \Big)^2 + \Big( \frac{\tau_L}{S_L} \Big)^2 } $$
+$$\phi_{2-} = \sqrt{\Big( \frac{\tau_T}{S_T} \Big)^2 + \Big( \frac{\tau_L}{S_L} \Big)^2 } \quad (\sigma_{22} < 0) $$
 
 # Input to the Model
 
@@ -120,3 +116,9 @@ For the 2nd and 3rd ply, the dominant mode is fiber compression (SDV 2). The fai
 For the 4th ply, the dominant mode is matrix compression $(\alpha_0 = 53°)$ (SDV 5). The failure index is 0.4631, and the reserve factor is 2.159
 
 The results of the UMAT do match eLamX² results and predict the dominant mode of failure correctly.
+
+# Reference
+Maimí, P, Camanho, P. P., Mayugo, J. und Dávila, C. A continuum damage
+model for composite laminates: Part I–Constitutive model. Mechanics of materials
+39.10, 2007, S. 897–908.
+47
