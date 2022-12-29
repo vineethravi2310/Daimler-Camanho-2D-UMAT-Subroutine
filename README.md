@@ -7,7 +7,7 @@
 <em>Daimler Camanho Failure Modes</em>
 </p>
 
-The following is a UMAT subroutine for Daimler Camanho failure criteria in Abaqus. It applies only to uni-directional composites. This UMAT considers only in-plane stresses and strains consistent with Classical Laminate Theory.
+**Daimler_Camanho.for** is a UMAT subroutine for Daimler Camanho failure criteria in Abaqus. It applies only to unidirectional composites. This UMAT considers only in-plane stresses and strains consistent with Classical Laminate Theory.
 
 ### Longitudinal Tensile Fracture
 
